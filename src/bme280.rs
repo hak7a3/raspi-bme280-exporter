@@ -18,7 +18,6 @@ const LEN_MEASUREMENT: usize = 8;
 const DELAY_STARTUP: Duration = Duration::from_millis(2);
 
 #[derive(Debug)]
-#[allow(dead_code)]
 pub(crate) struct CalibrationData {
     dig_t1: u16,
     dig_t2: i16,
@@ -81,8 +80,6 @@ pub(crate) struct Config {
     pub(crate) standby_time: StandbyTime,
     pub(crate) filter: Filter,
 }
-
-#[derive(Debug)]
 struct RawCconfig {
     ctrl_hum: u8,
     ctrl_meas: u8,
@@ -97,15 +94,12 @@ pub(crate) enum Mode {
     Normal = 0x03,
 }
 
-#[allow(dead_code)]
-#[derive(Debug)]
 pub(crate) struct Measurement {
     pub(crate) temperature: f64,
     pub(crate) pressure: f64,
     pub(crate) humidity: f64,
 }
 
-#[derive(Debug)]
 struct RawMeasurement {
     temperature: u32,
     pressure: u32,

@@ -30,10 +30,10 @@ fn main() {
     let calib = init_bme280(&mut i2c, args.adress).expect("failed to init bme280");
     log::info!("calibration data: {:?}", calib);
 
-    let press = metrics::gauge!("pressure_pascal");
-    let temp = metrics::gauge!("temperature_celsius");
-    let hum = metrics::gauge!("humidity_percent");
-    let last_measured = metrics::gauge!("last_measured_timestamp_ms");
+    let press = metrics::gauge!("bme280_pressure_pascal");
+    let temp = metrics::gauge!("bme280_temperature_celsius");
+    let hum = metrics::gauge!("bme280_humidity_rh");
+    let last_measured = metrics::gauge!("bme280_last_measured_timestamp_ms");
 
     loop {
         thread::sleep(Duration::from_secs(1));
